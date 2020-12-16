@@ -20,6 +20,6 @@ jobs:
             cordova platform add electron
             cordova build electron --release
       - store_artifacts:
-          path: ./platforms/electron/build
+          path: ./test/platforms/electron/build
           destination: build
 
