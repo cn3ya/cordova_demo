@@ -16,6 +16,7 @@ jobs:
           command: |
             npm i -g cordova
             cordova create test
+            cd test
             cordova platform add electron
             cordova build electron --release
       - store_artifacts:
