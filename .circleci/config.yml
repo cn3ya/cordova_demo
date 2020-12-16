@@ -9,12 +9,16 @@ jobs:
       name: win/default
       shell: powershell.exe
     steps:
-      - checkout
       - run: systeminfo
       - run:
-          name: "Check docker"
+          name: "Init cordova"
           shell: powershell.exe
           command: |
-            docker info
-            docker run hello-world:nanoserver-1809
+            npm i -g cordova
+            cordova create test
+            cordova platform add electron
+            cordova build electron --release
+      - store_artifacts:
+          path: ./platforms/electron/build
+          destination: build
 
